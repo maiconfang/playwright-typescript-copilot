@@ -1,0 +1,15 @@
+{
+  "name": "playwright-typescript-copilot",
+  "version": "1.0.0",
+  "description": "End-to-end tests using Playwright and TypeScript, following the Page Object Model (POM). This project explores how GitHub Copilot can help automate testing, starting with login screen scenarios. Clean, scalable, and ready to grow.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.53.2"
+  }
+}
