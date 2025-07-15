@@ -45,6 +45,56 @@ npx playwright test
 
 ---
 
+## ⚙️ Configuration Update
+
+In the file `playwright.config.ts`, the following option was added:
+
+```ts
+use: {
+  headless: true, // ✅ Headless activated
+  screenshot: 'only-on-failure',
+  video: 'retain-on-failure',
+},
+```
+
+This ensures that all tests run in **headless mode** (i.e., the browser does not open visually), which is useful for CI/CD and faster test execution.
+
+If you want to **see the test running with browser visible**, you can override this via the CLI using the `--headed` flag:
+
+```bash
+npx playwright test --headed
+```
+
+---
+
+## 🎯 Run a Single Test in Chrome
+
+To run a specific test in the Chromium browser, you can use the following command:
+
+```bash
+npx playwright test --project=chromium -g "should login successfully and redirect to app page"
+```
+
+This example refers to the test defined as:
+
+```ts
+test('should login successfully and redirect to app page', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    await loginPage.navigate();
+    await loginPage.login('luna.moon@maif.com', '123');
+    await loginPage.expectWelcomeMessage('Welcome'); // Adjust the message if necessary
+});
+```
+
+To see the browser window while the test runs, just add `--headed`:
+
+```bash
+npx playwright test --project=chromium -g "should login successfully and redirect to app page" --headed
+```
+
+---
+
 ## 💡 GitHub Copilot Usage
 
 Some parts of this project were assisted by [GitHub Copilot](https://github.com/features/copilot), such as:

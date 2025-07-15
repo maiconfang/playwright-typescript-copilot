@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
 // Test when user provides valid credentials
-test.only('should login successfully and redirect to app page', async ({ page }) => {
+test('should login successfully and redirect to app page', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.navigate();
@@ -82,3 +82,7 @@ test('should not allow access to login page when already logged in', async ({ pa
     await loginPage.navigate();
     await loginPage.expectWelcomeMessage('Welcome'); // Checks if still on the app page
 });
+
+
+// create a test to fill the username and password with maicon fang and password 123456
+
